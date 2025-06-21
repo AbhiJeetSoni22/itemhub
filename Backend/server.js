@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   res.send('API is up');
 });
 mongoose.connect(process.env.MONGO_URL)
-.then(() => console.log('MongoDB connected successfully'))
+.then(() => console.log('MongoDB connected '))
 .catch(err => console.error('MongoDB connection error:', err));
 
 app.use('/api', itemRoutes);
