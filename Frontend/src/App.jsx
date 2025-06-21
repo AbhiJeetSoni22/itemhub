@@ -13,7 +13,7 @@ function App() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showEnquirySuccess, setShowEnquirySuccess] = useState(false);
   const baseUrl = import.meta.env.VITE_BACKEND_URL;
-  console.log(baseUrl)
+
   useEffect(() => {
     fetchItems();
   }, []);
