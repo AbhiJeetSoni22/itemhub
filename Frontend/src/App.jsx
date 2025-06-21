@@ -12,15 +12,15 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showEnquirySuccess, setShowEnquirySuccess] = useState(false);
-
-
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
+  
   useEffect(() => {
     fetchItems();
   }, []);
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/items');
+      const response = await axios.get(`${baseUrl}/api/items`);
       setItems(response.data);
     } catch (error) {
       console.error('Error fetching items:', error);
@@ -29,7 +29,7 @@ function App() {
 
   const handleEnquire = async (item) => {
     try {
-      await axios.post('http://localhost:5000/api/enquire', { itemId: item._id });
+      await axios.post(`${baseUrl}/api/enquire`, { itemId: item._id });
       setSelectedItem(null)
       setShowEnquirySuccess(true);
     } catch (error) {

@@ -1,5 +1,5 @@
 function ViewItems({ items, onItemClick }) {
-  console.log('ViewItems items:', items);
+  const baseUrl= import.meta.env.VITE_BACKEND_URL;
   return (
     <div className="container mx-auto p-6">
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Explore Items</h2>
@@ -14,7 +14,7 @@ function ViewItems({ items, onItemClick }) {
               onClick={() => onItemClick(item)}
             >
               <img
-                src={`http://localhost:5000${item.coverImage}`}
+                src={`${baseUrl}${item.coverImage}`}
                 alt={item.name}
                 className="w-full h-48 object-cover rounded-t-xl"
               />

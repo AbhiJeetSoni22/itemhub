@@ -11,6 +11,7 @@ function AddItem({ showSuccess, onItemAdded }) {
     coverImage: null,
     additionalImages: [],
   });
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -23,7 +24,7 @@ const handleSubmit = async (e) => {
 
 
     try {
-      const response = await axios.post('http://localhost:5000/api/items', data, {
+      const response = await axios.post(`${baseUrl}/api/items`, data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log(response.data)
