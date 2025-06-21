@@ -31,7 +31,10 @@ function App() {
     try {
       await axios.post(`${baseUrl}/api/enquire`, { itemId: item._id });
       setSelectedItem(null)
+     
       setShowEnquirySuccess(true);
+      setTimeout(() => setShowEnquirySuccess(false), 3000);
+
     } catch (error) {
       console.error('Error sending enquiry:', error);
     }
