@@ -19,7 +19,7 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-app.use(cors({ origin: ['http://localhost:5173','https://itemhub-kmpeeahoi-abhijeet-sonis-projects.vercel.app/'] }));
+app.use(cors({ origin: ['http://localhost:5173',' http://localhost:4173/','https://itemhub-kmpeeahoi-abhijeet-sonis-projects.vercel.app/'] }));
 app.use(express.json());
 app.use('/uploads', express.static(uploadsDir));
 app.get('/', (req, res) => {
