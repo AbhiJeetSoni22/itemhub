@@ -22,7 +22,9 @@ if (!fs.existsSync(uploadsDir)) {
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 app.use('/uploads', express.static(uploadsDir));
-
+app.get('/', (req, res) => {
+  res.send('API is up');
+});
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
